@@ -7,7 +7,9 @@
 <script>
     function getGrade(marks)
     {
-        if(marks>=90)
+        if(marks>100 || marks<0)
+		alert("Invalid marks");
+	else if(marks>=90)
             return  "10";
         else if(marks<90 && marks>=80)
             return "9";
