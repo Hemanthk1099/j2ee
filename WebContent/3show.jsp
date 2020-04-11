@@ -8,6 +8,7 @@
 </head>
 <body>
 <div>
+		<% out.println("<h1>"+request.getParameter("usn")+ "</h1>");%>
 		<table>
 		<tr>
 		<td>Engineering Mathematics-3</td>

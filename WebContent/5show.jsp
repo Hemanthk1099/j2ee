@@ -9,6 +9,7 @@
 <body>
 <div>
 <table>
+		<% out.println("<h1>"+request.getParameter("usn")+ "</h1>");%>
 		<tr>
 		<td>Computer Networks</td>
 		<% out.println("<td>"+request.getParameter("maths")+ "</td>");%>

@@ -19,7 +19,7 @@
 					<td><input type="text" name="usn" /></td>
 				</tr>
 				<tr>
-					<td>Date of birth</td>
+					<td>Date of birth(YYYY-MM-DD)</td>
 					<td><input type="text" name="dob" /></td>
 				</tr>
 				<tr>

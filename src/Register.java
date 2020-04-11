@@ -3,6 +3,7 @@
 import java.io.IOException;
 import java.sql.DriverManager;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,10 +33,13 @@ public class Register extends HttpServlet {
 		final String sem="1";
 		final String branch=request.getParameter("branch");
 		final String cgpa="0";
+		final RequestDispatcher requestDispatcher;
 		//final String previousCGPA="0";
 		int i=st.executeUpdate("insert into register(Name,usn,dob,semester,branch,CGPA)values('"+name+"','"+usn+"','"+dob+"','"+sem+"','"+branch+"','"+cgpa+"')");
 		System.out.println("Data is successfully inserted!");
-		response.getWriter().append("Registered Succesfully now you can \"<a href='login.jsp'>Login</a>\"");
+		requestDispatcher=request.getRequestDispatcher("/login.jsp");		
+    	requestDispatcher.forward(request, response);
+		//response.getWriter().append("Registered Succesfully now you can \"<a href='login.jsp'>Login</a>\"");
 		}
 		catch(Exception e) {
 			//System.out.println("kirik");

@@ -42,8 +42,11 @@ public class Update extends HttpServlet {
             	final ResultSet result=(ResultSet) st.executeQuery(query1);
             	if(result.next()) {
             		String c=result.getString("CGPA");
+            		final int semester=Integer.parseInt(sem);
             		final double cg=Double.parseDouble(c);
-            		cgpa=df2.format((sgpa1+cg)/2);
+            		final double sg=Double.parseDouble(sgpa);
+            		final double cgp=((semester-1)*cg+sg)/semester;
+            		cgpa=df2.format(cgp);
             		
             	}
 			    final RequestDispatcher requestDispatcher;
@@ -61,6 +64,7 @@ public class Update extends HttpServlet {
 			    }
 			    request.setAttribute("sem", sem);
 			    request.setAttribute("cgpa", cgpa);
+			    request.setAttribute("usn", usn);
 			    requestDispatcher=request.getRequestDispatcher("/"+sem+"show.jsp");		
             	requestDispatcher.forward(request, response);
 			    

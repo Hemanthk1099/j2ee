@@ -9,6 +9,7 @@
 <body>
 <div>
 <table>
+		<% out.println("<h1>"+request.getParameter("usn")+ "</h1>");%>
 		<tr>
 		<td>System Software</td>
 		<% out.println("<td>"+request.getParameter("ss")+ "</td>");%>
