@@ -47,11 +47,13 @@ public class Update extends HttpServlet {
             		final double sg=Double.parseDouble(sgpa);
             		final double cgp=((semester-1)*cg+sg)/semester;
             		cgpa=df2.format(cgp);
-            		
             	}
 			    final RequestDispatcher requestDispatcher;
 			    if(!sgpa.equals("Year Back")) {
-		      	final String query="Update register set CGPA=\'"+cgpa+"\',semester=semester+1 WHERE usn=\'"+usn+"\'";
+			    String query="";
+			    query=getQuery(sem,cgpa,sgpa,usn);
+//			    if(sem.equals("1"))
+//			    		query="Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA1='"+sgpa+"' WHERE usn='"+usn+"'";
 		       	Statement stmt =  (Statement) con.createStatement();
 		       	int count=stmt.executeUpdate(query);
 			    	}
@@ -68,7 +70,6 @@ public class Update extends HttpServlet {
 			    requestDispatcher=request.getRequestDispatcher("/"+sem+"show.jsp");		
             	requestDispatcher.forward(request, response);
 			    
-			    
 		       	System.out.println(sgpa);
 		       	System.out.println(usn);
 		        				
@@ -77,6 +78,24 @@ public class Update extends HttpServlet {
 				e.printStackTrace();
 			}
 			response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+	}
+
+	private String getQuery(String sem,String cgpa,String sgpa,String usn) {
+		// TODO Auto-generated method stub
+		switch (sem) {
+		case "1":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA1='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "2":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA2='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "3":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA3='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "4":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA4='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "5":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA5='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "6":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA6='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "7":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA7='"+sgpa+"' WHERE usn='"+usn+"'";
+		case "8":return "Update register set CGPA='"+cgpa+"',semester=semester+1,SGPA8='"+sgpa+"' WHERE usn='"+usn+"'";
+		
+		default:
+			return "";
+		}
 		
 	}
 

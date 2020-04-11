@@ -57,6 +57,7 @@
 		</tr>
 		</table>
 		<a href='login.jsp'>LOGOUT</a>
+		<a href='2sem.jsp'>Next Sem</a>
 
 </div>
 </body>

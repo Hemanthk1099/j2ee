@@ -32,14 +32,14 @@ public class Register extends HttpServlet {
 		final String dob=request.getParameter("dob");
 		final String sem="1";
 		final String branch=request.getParameter("branch");
-		final String cgpa="0";
+		final String initialCgpa="0";
+		final String initialSgpa="0";
 		final RequestDispatcher requestDispatcher;
-		//final String previousCGPA="0";
-		int i=st.executeUpdate("insert into register(Name,usn,dob,semester,branch,CGPA)values('"+name+"','"+usn+"','"+dob+"','"+sem+"','"+branch+"','"+cgpa+"')");
+		int i=st.executeUpdate("insert into register(Name,usn,dob,semester,branch,CGPA,SGPA1,SGPA2,SGPA3,SGPA4,SGPA5,SGPA6,SGPA7,SGPA8)values('"+name+"','"+usn+"','"+dob+"','"+sem+"','"+branch+"','"+initialCgpa+"','"+initialSgpa+"','"+initialSgpa+"','"+initialSgpa+"','"+initialSgpa+"','"+initialSgpa+"','"+initialSgpa+"','"+initialSgpa+"','"+initialSgpa+"')");
 		System.out.println("Data is successfully inserted!");
 		requestDispatcher=request.getRequestDispatcher("/login.jsp");		
     	requestDispatcher.forward(request, response);
-		//response.getWriter().append("Registered Succesfully now you can \"<a href='login.jsp'>Login</a>\"");
+		//response.getWriter().append("Registered Succesfully now you can "<a href='login.jsp'>Login</a>"");
 		}
 		catch(Exception e) {
 			//System.out.println("kirik");

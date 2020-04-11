@@ -35,7 +35,7 @@
 		<% out.println("<td>"+request.getAttribute("cgpa")+ "</td>");%>
 		</tr>
 		</table>
-		\<a href='login.jsp'>LOGOUT</a>\
+		<a href='login.jsp'>LOGOUT</a>
 </div>
 </body>
 </html>
