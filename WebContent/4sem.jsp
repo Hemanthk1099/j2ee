@@ -51,7 +51,7 @@ function sgpa() {
 }
 </script>
 <body>
-	<h1>Semester 1</h1>
+	<h1>Semester 4</h1>
 <div>
 <form action="Update" method="post">
 			<table style="width: 50%">
